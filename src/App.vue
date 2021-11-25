@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <NavigationBar></NavigationBar>
+    <NavigationBar sitio="Recetas" />
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-6">
-          <Message></Message>
+        <div class="col-3" v-for="(mensaje, i) in mensajes" :key="i">
+          <Message :mensaje="mensaje"></Message>
         </div>
       </div>
     </div>
@@ -20,7 +20,28 @@ export default {
   components: {
     NavigationBar,
     Message
-  }
+  },
+  data() {
+    return {
+      mensajes: [
+        {
+          usuario: "Conrado",
+          msg: "Bienvenido al curso!",
+          tipo: "success"
+        },
+        {
+          usuario: "Nicolás",
+          msg: "Cómo vas llevando el curso?",
+          tipo: "success"
+        },
+        {
+          usuario: "Cerebro",
+          msg: "Recordá descansar, es importante!",
+          tipo: "danger"
+        },
+      ]
+    }
+  },
 }
 </script>
 
